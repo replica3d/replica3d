@@ -44,7 +44,7 @@ const Services = () => {
           className="text-center mb-12"
         >
           <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">CO OFERUJEMY</p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">nasze usługi</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">nasze usługi</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Oferujemy kompleksowy zakres usług druku 3D, od prototypowania po serie produkcyjne.
           </p>

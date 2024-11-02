@@ -38,7 +38,7 @@ const Contact = () => {
           className="text-center mb-12"
         >
           <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">MASZ POMYSŁ NA PROJEKT?</p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">skontaktuj się z nami</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">skontaktuj się z nami</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Jeśli masz model do wydrukowania, potrzebujesz prototypu do swojego projektu lub po prostu chciałbyś uzyskać więcej informacji o usługach, które dostarczamy, zapraszamy Cię do kontaktu. Będzie nam miło jeśli uda nam się Ci pomóc!
           </p>
