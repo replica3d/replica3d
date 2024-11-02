@@ -27,7 +27,7 @@ const PrintingPage = () => {
 
       <Navbar />
 
-      <div className="relative h-[30vh] flex items-center overflow-hidden">
+      <div className="relative h-[20vh] flex items-center overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -41,9 +41,9 @@ const PrintingPage = () => {
           className="absolute inset-0"
           style={{ backgroundColor: '#153243', opacity: 0.5 }}
         />
-        <div className="relative z-10 max-w-6xl mx-auto px-4 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 w-full h-full">
           <motion.h2
-            className="font-['Poppins'] font-bold text-6xl md:text-8xl text-white text-left tracking-tight"
+              className="absolute bottom-0 font-['Poppins'] font-bold text-6xl md:text-8xl text-white text-left tracking-tight -mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -130,7 +130,7 @@ const PrintingPage = () => {
                   <h4 className="text-lg font-semibold mb-4">
                     Koszty podstawowe
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="text-base space-y-2">
                     <li className="flex items-center space-x-2">
                       <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
                       <span>Przygotowanie projektu</span>
@@ -149,7 +149,7 @@ const PrintingPage = () => {
                   <h4 className="text-lg font-semibold mb-4">
                     Koszty dodatkowe
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="text-base space-y-2">
                     <li className="flex items-center space-x-2">
                       <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
                       <span>Materiały i utrzymanie sprzętu</span>
