@@ -17,10 +17,6 @@ body {
   margin-top: 0.5rem;
 }
 
-.text-4xl {
-  font-size: 3rem !important;
-}
-
 .tech-card {
   @apply relative overflow-hidden cursor-pointer;
 }
