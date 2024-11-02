@@ -2,16 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
-  { id: 1, image: 'https://placehold.co/800x800/333/FFF' },
-  { id: 2, image: 'https://placehold.co/800x800/333/FFF?text=Project_2' },
-  { id: 3, image: 'https://placehold.co/800x800/333/FFF?text=Project_3' },
-  { id: 4, image: 'https://placehold.co/800x800/333/FFF?text=Project_4' },
-  { id: 5, image: 'https://placehold.co/800x800/333/FFF?text=Project_5' },
-  { id: 6, image: 'https://placehold.co/800x800/333/FFF?text=Project_6' },
-  { id: 7, image: 'https://placehold.co/800x800/333/FFF?text=Project_7' },
-  { id: 8, image: 'https://placehold.co/800x800/333/FFF?text=Project_8' },
-  { id: 9, image: 'https://placehold.co/800x800/333/FFF?text=Project_9' },
-  { id: 10, image: 'https://placehold.co/800x800/333/FFF?text=Project_10' }
+  { id: 1, image: 'images/project_1.webp' },
+  { id: 2, image: 'images/project_2.webp' },
+  { id: 3, image: 'images/project_3.webp' },
+  { id: 4, image: 'images/project_4.webp' },
+  { id: 5, image: 'images/project_5.webp' },
+  { id: 6, image: 'images/project_6.webp' },
+  { id: 7, image: 'images/project_7.webp' },
+  { id: 8, image: 'images/project_8.webp' },
 ];
 
 const Portfolio = () => {
