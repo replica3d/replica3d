@@ -29,7 +29,7 @@ const Services = () => {
   return (
     <div id="services" className="py-12 relative">
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url('images/bg.webp')`
         }}
