@@ -35,7 +35,7 @@ const Technology = () => {
   return (
     <div id="technology" className="py-12 relative overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-fixed"
         style={{
           backgroundImage: `url('images/bg.webp')`
         }}
