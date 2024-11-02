@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
@@ -7,6 +8,20 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if we have a section to scroll to from navigation
+    if (location.state && location.state.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Clear the state after scrolling
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
+
   return (
     <>
       <Hero />

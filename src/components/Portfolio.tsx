@@ -56,7 +56,7 @@ const Portfolio = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">JAK PRACUJEMY</p>
+          <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">NASZE NAJNOWSZE WYDRUKI 3D</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">zrealizowane projekty</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Zobacz nasze ostatnie projekty i przekonaj się, jak pomagamy naszym

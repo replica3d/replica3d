@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Mail,
   Instagram,
@@ -10,6 +11,24 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    
+    if (location.pathname === '/') {
+      // If we're on the home page, scroll to the section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to home and then scroll
+      navigate('/', { state: { scrollTo: sectionId } });
+    }
+  };
+
   return (
     <footer className="relative text-white w-full overflow-x-hidden">
       <div
@@ -38,6 +57,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#services"
+                  onClick={(e) => handleLinkClick(e, 'services')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Usługi
@@ -46,6 +66,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#portfolio"
+                  onClick={(e) => handleLinkClick(e, 'portfolio')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Portfolio
@@ -54,6 +75,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#technology"
+                  onClick={(e) => handleLinkClick(e, 'technology')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Technologia
@@ -62,6 +84,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#contact"
+                  onClick={(e) => handleLinkClick(e, 'contact')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Kontakt
