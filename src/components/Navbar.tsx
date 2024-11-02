@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,16 +22,37 @@ const Navbar = () => {
   const navBackground = scrolled ? 'bg-white/80 backdrop-blur-sm' : 'bg-transparent';
   const textColor = scrolled ? 'text-[#333333]' : 'text-white';
 
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/#contact');
+      setTimeout(() => {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     }
-    setIsMenuOpen(false);
   };
+
+  const handleContactClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+
+    if (location.pathname === '/') {
+      scrollToContact();
+    } else {
+      navigate('/', { 
+        state: { scrollTo: 'contact' },
+        replace: true
+      });
+    }
+  };
+
+  // Handle scroll when navigating from another page
+  useEffect(() => {
+    if (location.state?.scrollTo === 'contact') {
+      scrollToContact();
+      // Clear the state
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   return (
     <motion.div
@@ -56,13 +78,12 @@ const Navbar = () => {
           >
             Druk 3D
           </Link>
-          <a
-            href="#contact"
+          <button
             onClick={handleContactClick}
             className="flex-shrink-0 bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Kontakt
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -95,13 +116,12 @@ const Navbar = () => {
               >
                 Druk 3D
               </Link>
-              <a
-                href="#contact"
+              <button
                 onClick={handleContactClick}
                 className="w-full max-w-[200px] bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
               >
                 Kontakt
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
