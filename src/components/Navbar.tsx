@@ -20,7 +20,7 @@ const Navbar = () => {
   }, []);
 
   const navBackground = scrolled ? 'bg-white/80 backdrop-blur-sm' : 'bg-transparent';
-  const textColor = scrolled ? 'text-[#333333]' : 'text-white';
+  const textColor = scrolled ? 'text-[#0A0A0AED]' : 'text-white';
 
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');

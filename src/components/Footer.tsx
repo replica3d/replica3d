@@ -178,12 +178,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="relative z-10 bg-[#333333] w-full">
+      <div className="relative z-10 bg-[#0A0A0AED] w-full">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center text-gray-300 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center text-gray-300 text-body">
             <div className="text-center md:text-left mb-2 md:mb-0">
-              REPLICA3D © 2024 | Polityka Prywatności | RN: 387720616 | NIP:
-              8982231371
+              REPLICA3D © 2024 | RN:387720616 | NIP:8982231371
             </div>
             <div className="flex items-center">
               With <span className="text-red-500 mx-1">❤️</span> from Wrocław
