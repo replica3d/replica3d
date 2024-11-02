@@ -44,8 +44,8 @@ const Services = () => {
           className="text-center mb-12"
         >
           <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">CO OFERUJEMY</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">nasze usługi</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-[#333333] text-4xl md:text-5xl font-bold mb-4">nasze usługi</h2>
+          <p className="text-[#333333] max-w-2xl mx-auto">
             Oferujemy kompleksowy zakres usług druku 3D, od prototypowania po serie produkcyjne.
           </p>
         </motion.div>
@@ -77,8 +77,8 @@ const Services = () => {
               >
                 {service.icon}
               </motion.div>
-              <h3 className="text-xl font-semibold mb-2 text-center">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <h3 className="text-xl font-semibold mb-2 text-center text-[#333333]">{service.title}</h3>
+              <p className="text-[#333333]">{service.description}</p>
             </motion.div>
           ))}
         </div>

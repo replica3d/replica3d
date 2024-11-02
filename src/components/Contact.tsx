@@ -38,8 +38,8 @@ const Contact = () => {
           className="text-center mb-12"
         >
           <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">MASZ POMYSŁ NA PROJEKT?</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">skontaktuj się z nami</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-[#333333] text-4xl md:text-5xl font-bold mb-4">skontaktuj się z nami</h2>
+          <p className="text-[#333333] max-w-2xl mx-auto">
             Jeśli masz model do wydrukowania, potrzebujesz prototypu do swojego projektu lub po prostu chciałbyś uzyskać więcej informacji o usługach, które dostarczamy, zapraszamy Cię do kontaktu. Będzie nam miło jeśli uda nam się Ci pomóc!
           </p>
         </motion.div>
@@ -57,26 +57,26 @@ const Contact = () => {
               name="name"
               placeholder="Imię i nazwisko"
               required
-              className="w-full rounded-md border-2 border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 font-['Poppins']"
+              className="w-full rounded-md border-2 border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 font-['Poppins'] text-[#333333]"
             />
             <input
               type="email"
               name="email"
               placeholder="Email"
               required
-              className="w-full rounded-md border-2 border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 font-['Poppins']"
+              className="w-full rounded-md border-2 border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 font-['Poppins'] text-[#333333]"
             />
             <textarea
               name="message"
               rows={4}
               placeholder="Wiadomość"
               required
-              className="w-full rounded-md border-2 border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 font-['Poppins']"
+              className="w-full rounded-md border-2 border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 font-['Poppins'] text-[#333333]"
             ></textarea>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 font-['Poppins']"
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-body font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 font-['Poppins']"
             >
               {isSubmitting ? 'Wysyłanie...' : 'Wyślij wiadomość'}
             </button>
