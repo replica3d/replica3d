@@ -39,8 +39,8 @@ const Services = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, type: "spring" }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold mb-4">Nasze Usługi</h2>
@@ -53,25 +53,26 @@ const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ 
-                duration: 0.5, 
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 100
+                duration: 0.5,
+                delay: index * 0.15,
+                ease: "easeOut"
               }}
               whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 4px 20px rgba(0,0,0,0.1)"
+                scale: 1.03,
+                transition: { duration: 0.2 }
               }}
-              className="bg-white p-6 rounded-lg shadow-lg transition-all"
+              className="bg-white p-6 rounded-lg shadow-lg"
             >
               <motion.div 
                 className="flex justify-center mb-4"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
+                whileHover={{ 
+                  rotate: 360,
+                  transition: { duration: 0.6, ease: "easeInOut" }
+                }}
               >
                 {service.icon}
               </motion.div>

@@ -33,7 +33,7 @@ const technologies = [
 
 const Technology = () => {
   return (
-    <div id="technology" className="py-12 relative">
+    <div id="technology" className="py-12 relative overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
@@ -60,8 +60,8 @@ const Technology = () => {
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, type: "spring" }}
               whileHover={{ scale: 1.02 }}
@@ -81,17 +81,17 @@ const Technology = () => {
 
                 <div className="absolute inset-0 p-8 flex flex-col items-center justify-center text-white transition-transform duration-300 translate-y-full group-hover:translate-y-0">
                   <h3 className="text-2xl font-bold mb-4">{tech.title}</h3>
-                  <ul className="space-y-2 text-left">
+                  <ul className="space-y-2 text-left w-full">
                     {tech.specs.map((spec, i) => (
                       <motion.li 
                         key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         transition={{ delay: i * 0.1 }}
                         className="flex items-center"
                       >
-                        <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                        {spec}
+                        <span className="w-2 h-2 bg-white rounded-full mr-2 flex-shrink-0"></span>
+                        <span className="break-words">{spec}</span>
                       </motion.li>
                     ))}
                   </ul>
