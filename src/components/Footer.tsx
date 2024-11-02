@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="relative text-white">
+    <footer className="relative text-white w-full overflow-x-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -73,16 +73,16 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-4">Kontakt</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
-                <Mail size={20} className="text-gray-300" />
+                <Mail size={20} className="text-gray-300 flex-shrink-0" />
                 <a
                   href="mailto:info@replica3d.pl"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 hover:text-white transition-colors break-all"
                 >
                   info@replica3d.pl
                 </a>
               </li>
               <li className="flex items-center space-x-2">
-                <MessageCircle size={20} className="text-gray-300" />
+                <MessageCircle size={20} className="text-gray-300 flex-shrink-0" />
                 <a
                   href="https://m.me/replica3dpl"
                   target="_blank"
@@ -93,7 +93,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center space-x-2">
-                <Phone size={20} className="text-gray-300" />
+                <Phone size={20} className="text-gray-300 flex-shrink-0" />
                 <a
                   href="https://wa.me/+48786886676"
                   target="_blank"
@@ -155,9 +155,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="relative z-10 bg-[#333333]">
+      <div className="relative z-10 bg-[#333333] w-full">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center text-gray-300">
+          <div className="flex flex-col md:flex-row justify-between items-center text-gray-300 text-sm">
             <div className="text-center md:text-left mb-2 md:mb-0">
               REPLICA3D © 2024 | Polityka Prywatności | RN: 387720616 | NIP:
               8982231371
