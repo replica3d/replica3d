@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-white space-y-0"
         >
-          <div className="font-['Poppins'] font-extrabold text-6xl xs:text-6xl sm:text-6xl md:text-7xl lg:text-8xl leading-none text-left">
+          <div className="font-['Poppins'] font-extrabold text-5xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-none text-left">
             <div>we make</div>
             <div>awesome</div>
             <div>prints</div>
