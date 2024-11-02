@@ -43,7 +43,7 @@ const PrintingPage = () => {
         />
         <div className="relative z-10 max-w-6xl mx-auto px-4 w-full h-full">
           <motion.h2
-              className="absolute bottom-0 font-['Poppins'] font-bold text-6xl md:text-8xl text-white text-left tracking-tight -mb-4"
+              className="absolute bottom-0 font-['Poppins'] font-bold text-6xl md:text-8xl text-white text-left tracking-tight -mb-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
