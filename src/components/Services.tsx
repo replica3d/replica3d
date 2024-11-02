@@ -31,7 +31,7 @@ const Services = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: `url('https://replica3d.pl/wp-content/uploads/2020/03/bg-home.jpg')`
+          backgroundImage: `url('images/bg.webp')`
         }}
       />
       <div className="absolute inset-0 bg-black opacity-5" />

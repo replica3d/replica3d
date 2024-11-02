@@ -22,7 +22,7 @@ const PrintingPage = () => {
         <motion.div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://replica3d.pl/wp-content/uploads/2019/05/header-services.jpg')`
+            backgroundImage: `url('images/druk-3d.webp')`
           }}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
