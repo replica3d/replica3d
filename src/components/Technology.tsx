@@ -49,7 +49,8 @@ const Technology = () => {
           transition={{ duration: 0.8, type: "spring" }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Nasza Technologia</h2>
+          <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">JAK PRACUJEMY</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">nasza technologia</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Używamy najnowocześniejszej technologii druku 3D, aby zapewnić najwyższą
             jakość realizacji Twoich projektów.

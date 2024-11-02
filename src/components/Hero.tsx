@@ -12,7 +12,7 @@ const Hero = () => {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
   return (
-    <div ref={ref} className="relative h-[40vh] overflow-hidden">
+    <div ref={ref} className="relative h-[30vh] md:h-[40vh] overflow-hidden">
       <Navbar />
       <motion.div
         style={{ y }}
@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-white space-y-0"
         >
-          <div className="font-['Poppins'] font-extrabold text-5xl xs:text-6xl sm:text-6xl md:text-7xl lg:text-7xl leading-none text-left">
+          <div className="font-['Poppins'] font-extrabold text-5xl xs:text-6xl sm:text-6xl md:text-7xl lg:text-8xl leading-none text-left">
             <div>we make</div>
             <div>awesome</div>
             <div>prints</div>
