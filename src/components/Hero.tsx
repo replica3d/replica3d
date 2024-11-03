@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div
       ref={ref}
-      className="relative h-[250px] md:h-[500px] overflow-hidden"
+      className="relative h-[200px] md:h-[500px] overflow-hidden"
     >
       <Navbar />
       <motion.div
