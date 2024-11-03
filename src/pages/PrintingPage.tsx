@@ -13,16 +13,17 @@ const PrintingPage = () => {
         <title>Usługi Druku 3D Wrocław - REPLICA3D</title>
         <meta
           name="description"
-          content="Profesjonalne usługi druku 3D we Wrocławiu. Oferujemy druk FDM i SLA, szybką realizację i konkurencyjne ceny. Sprawdź naszą ofertę!"
+          content="Profesjonalne usługi druku 3D we Wrocławiu. Oferujemy druk 3D na zamówienie, wydruki 3D FDM i SLA, szybka realizacja i konkurencyjne ceny. Sprawdź naszą ofertę!"
         />
         <meta
           property="og:title"
-          content="Usługi Druku 3D Wrocław - REPLICA3D"
+          content="Usługi druku 3D | Druk 3D na zamówienie Wrocław - REPLICA3D"
         />
         <meta
           property="og:description"
-          content="Profesjonalne usługi druku 3D we Wrocławiu. Oferujemy druk FDM i SLA, szybką realizację i konkurencyjne ceny. Sprawdź naszą ofertę!"
+          content="Profesjonalne usługi druku 3D we Wrocławiu. Oferujemy druk 3D na zamówienie, wydruki 3D FDM i SLA, szybka realizacja i konkurencyjne ceny. Sprawdź naszą ofertę!"
         />
+        <link rel="canonical" href="https://replica3d.pl/druk-3d" />
       </Helmet>
 
       <Navbar />
