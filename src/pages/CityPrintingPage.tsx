@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -7,6 +6,7 @@ import CityHero from '../components/city/CityHero';
 import CityIntro from '../components/city/CityIntro';
 import CityFAQ from '../components/city/CityFAQ';
 import CitiesList from '../components/city/CitiesList';
+import SEO from '../components/SEO';
 
 interface City {
   name: string;
@@ -21,9 +21,9 @@ interface CityPageProps {
 }
 
 const CityPrintingPage: React.FC<CityPageProps> = ({ city, allCities }) => {
-  const title = `druk 3d ${city.name.toLowerCase()}`;
-  const seoTitle = `Drukowanie 3D ${city.name} | Usługi druku 3D - REPLICA3D`;
+  const title = `Drukowanie 3D ${city.name} | Usługi druku 3D - REPLICA3D`;
   const description = `Profesjonalne usługi druku 3D w ${city.name}. Oferujemy druk 3D na zamówienie, wydruki 3D FDM i SLA, szybka realizacja i konkurencyjne ceny.`;
+  const canonicalUrl = `https://replica3d.pl/druk-3d-${city.url}`;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -74,19 +74,15 @@ const CityPrintingPage: React.FC<CityPageProps> = ({ city, allCities }) => {
 
   return (
     <>
-      <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={description} />
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={description} />
-        <link rel="canonical" href={`https://replica3d.pl/druk-3d-${city.url}`} />
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-      </Helmet>
+      <SEO
+        title={title}
+        description={description}
+        canonicalUrl={canonicalUrl}
+        schema={faqSchema}
+      />
 
       <Navbar />
-      <CityHero title={title} />
+      <CityHero title={`druk 3d ${city.name.toLowerCase()}`} />
 
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="prose prose-lg max-w-none text-[#333333]">
