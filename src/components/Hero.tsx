@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div
       ref={ref}
-      className="relative h-[30vh] sm:h-[35vh] md:h-[40vh] lg:h-[45vh] xl:h-[50vh] overflow-hidden"
+      className="relative h-[250px] md:h-[500px] overflow-hidden"
     >
       <Navbar />
       <motion.div
@@ -41,7 +41,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white space-y-0 w-full absolute bottom-0 md:static"
+          className="text-white space-y-0 w-full"
         >
           <div className="font-extrabold text-4xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-8xl leading-none text-left md:text-left">
             <div>we make</div>

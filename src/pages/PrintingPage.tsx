@@ -27,7 +27,7 @@ const PrintingPage = () => {
 
       <Navbar />
 
-      <div className="relative h-[20vh] flex items-center overflow-hidden">
+      <div className="relative h-[200px] md:h-[300px] overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
