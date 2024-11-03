@@ -1,31 +1,4 @@
 User-agent: *
 Allow: /
-Allow: /druk-3d
 
-# Sitemaps
 Sitemap: https://replica3d.pl/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 10
-
-# Media files
-Allow: /*.js
-Allow: /*.css
-Allow: /*.png
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.gif
-Allow: /*.svg
-Allow: /*.webp
-
-# Prevent crawling of potential sensitive areas
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-Disallow: /temp/
-Disallow: /draft/
-Disallow: /*.json$
-Disallow: /*?*
-
-# Host
-Host: https://replica3d.pl

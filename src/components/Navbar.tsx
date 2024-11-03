@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -25,34 +24,12 @@ const Navbar = () => {
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      setTimeout(() => {
+      setIsMenuOpen(false); // Close mobile menu before scrolling
+      setTimeout(() => { // Add small delay to ensure menu is closed
         contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
     }
   };
-
-  const handleContactClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-
-    if (location.pathname === '/') {
-      scrollToContact();
-    } else {
-      navigate('/', { 
-        state: { scrollTo: 'contact' },
-        replace: true
-      });
-    }
-  };
-
-  // Handle scroll when navigating from another page
-  useEffect(() => {
-    if (location.state?.scrollTo === 'contact') {
-      scrollToContact();
-      // Clear the state
-      window.history.replaceState({}, document.title);
-    }
-  }, [location.state]);
 
   return (
     <motion.div
@@ -79,7 +56,7 @@ const Navbar = () => {
             Druk 3D
           </Link>
           <button
-            onClick={handleContactClick}
+            onClick={scrollToContact}
             className="flex-shrink-0 bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Kontakt
@@ -117,7 +94,7 @@ const Navbar = () => {
                 Druk 3D
               </Link>
               <button
-                onClick={handleContactClick}
+                onClick={scrollToContact}
                 className="w-full max-w-[200px] bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
               >
                 Kontakt

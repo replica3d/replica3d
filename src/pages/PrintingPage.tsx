@@ -5,6 +5,8 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { Clock, DollarSign, Printer } from 'lucide-react';
+import CitiesList from '../components/city/CitiesList';
+import { cities } from '../data/cities';
 
 const PrintingPage = () => {
   return (
@@ -213,7 +215,7 @@ const PrintingPage = () => {
           </div>
 
           {/* External Resources */}
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <h3 className="text-2xl font-semibold mb-6 mt-0">
               Przydatne zasoby
             </h3>
@@ -261,64 +263,10 @@ const PrintingPage = () => {
               ))}
             </div>
           </div>
-        </motion.div>
-      </div>
 
-      {/* FAQ Section */}
-      <div className="max-w-6xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-semibold mb-8">Często zadawane pytania</h2>
-        <div className="space-y-6">
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold mb-2">
-              Ile kosztuje druk 3D?
-            </h3>
-            <p className="text-base">
-              Koszt druku 3D zależy od kilku czynników: wielkości modelu,
-              użytego materiału, czasu druku oraz stopnia skomplikowania
-              projektu. Wyceny dokonujemy indywidualnie po otrzymaniu modelu 3D.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold mb-2">
-              Jaki jest czas realizacji zamówienia?
-            </h3>
-            <p className="text-base">
-              Standardowy czas realizacji wynosi 2-5 dni roboczych, w zależności
-              od wielkości i złożoności projektu. W przypadku pilnych zleceń
-              możliwa jest realizacja ekspresowa.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold mb-2">
-              Jakie materiały są dostępne do druku 3D?
-            </h3>
-            <p className="text-base">
-              Oferujemy druk z różnych materiałów, w tym PLA, ABS, PETG, TPU dla
-              technologii FDM oraz szeroki wybór żywic dla technologii SLA.
-              Każdy materiał ma swoje unikalne właściwości i zastosowania.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold mb-2">
-              Czy mogę wydrukować własny projekt?
-            </h3>
-            <p className="text-base">
-              Tak, możesz dostarczyć własny model 3D w formacie STL, OBJ lub
-              innych popularnych formatach. Sprawdzimy jego drukowalność i
-              doradzimy optymalne parametry druku.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold mb-2">
-              Jaką dokładność ma druk 3D?
-            </h3>
-            <p className="text-base">
-              Dokładność zależy od technologii druku. Dla FDM osiągamy
-              dokładność do 0.1mm, natomiast dla SLA nawet do 0.025mm. Wybór
-              technologii zależy od wymagań projektu.
-            </p>
-          </div>
-        </div>
+          {/* Cities List */}
+          <CitiesList cities={Object.values(cities)} />
+        </motion.div>
       </div>
 
       <Contact />
