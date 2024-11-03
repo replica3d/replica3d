@@ -10,7 +10,7 @@ const PrintingPage = () => {
   return (
     <>
       <Helmet>
-        <title>Usługi Druku 3D Wrocław - REPLICA3D</title>
+        <title>Usługi druku 3D | Druk 3D na zamówienie Wrocław - REPLICA3D</title>
         <meta
           name="description"
           content="Profesjonalne usługi druku 3D we Wrocławiu. Oferujemy druk 3D na zamówienie, wydruki 3D FDM i SLA, szybka realizacja i konkurencyjne ceny. Sprawdź naszą ofertę!"
@@ -244,7 +244,6 @@ const PrintingPage = () => {
                   url: 'https://www.yeggi.com/',
                   description: 'Wyszukiwarka modeli 3D',
                 },
-                ,
               ].map((resource, index) => (
                 <motion.a
                   key={index}
