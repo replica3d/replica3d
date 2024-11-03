@@ -41,9 +41,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white space-y-0 w-full absolute bottom-0"
+          className="text-white space-y-0 w-full absolute bottom-0 md:static"
         >
-          <div className="font-extrabold text-4xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-7xl leading-none text-left md:text-left">
+          <div className="font-extrabold text-4xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-8xl leading-none text-left md:text-left">
             <div>we make</div>
             <div>awesome</div>
             <div>prints</div>
