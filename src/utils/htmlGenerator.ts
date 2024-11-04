@@ -313,6 +313,22 @@ const getCityContent = (city: {
           </div>
         </div>
       </div>
+        <section class="cities">
+        <h2>Druk 3D w Polsce</h2>
+        <p>Świadczymy usługi druku 3D w następujących miastach:</p>
+        <div class="cities-grid">
+          ${Object.values(cities)
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map(
+              (city) => `
+              <div class="city-item">
+                <a href="/druk-3d-${city.url}">${city.name}</a>
+              </div>
+            `
+            )
+            .join('')}
+        </div>
+      </section>
     </main>
   `,
 });
