@@ -6,7 +6,7 @@ Disallow: /api/
 Sitemap: https://replica3d.pl/sitemap.xml
 
 # Crawl-delay
-Crawl-delay: 10
+Crawl-delay: 1
 
 # Host
 Host: https://replica3d.pl
