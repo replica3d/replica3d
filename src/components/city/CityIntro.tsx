@@ -17,7 +17,7 @@ const CityIntro: React.FC<CityIntroProps> = ({ cityName, nameLocative, prepositi
       >
         <h2 className="mt-0 mb-4 text-[#333333]">Drukarnia 3D {cityName}</h2>
         <p className="text-base leading-relaxed mb-0 mt-0 text-[#333333]">
-          Szukasz profesjonalnego druku 3D {preposition} {nameLocative}? Jesteśmy lokalnym ekspertem w technologii FDM, oferującym szybkie i niezawodne <a href="/druk-3d/">usługi druku 3D dla firm</a> i osób prywatnych. Nasza drukarnia 3D {preposition} {nameLocative} specjalizuje się w tworzeniu prototypów, części zamiennych i modeli projektowych w przystępnych cenach. Dzięki najnowocześniejszym drukarkom FDM i doświadczonemu zespołowi, zrealizujemy Twój projekt szybko i dokładnie - od pojedynczych elementów po większe serie produkcyjne.
+          Szukasz profesjonalnego druku 3D {preposition} {nameLocative}? Jesteśmy lokalnym ekspertem w technologii FDM, oferującym szybkie i niezawodne <a href="/druk-3d">usługi druku 3D dla firm</a> i osób prywatnych. Nasza drukarnia 3D {preposition} {nameLocative} specjalizuje się w tworzeniu prototypów, części zamiennych i modeli projektowych w przystępnych cenach. Dzięki najnowocześniejszym drukarkom FDM i doświadczonemu zespołowi, zrealizujemy Twój projekt szybko i dokładnie - od pojedynczych elementów po większe serie produkcyjne.
         </p>
       </motion.div>
 
