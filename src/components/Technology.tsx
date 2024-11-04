@@ -9,12 +9,12 @@ const technologies = [
     description: 'Idealny do prototypów funkcjonalnych i części użytkowych',
     specs: [
       'Rozdzielczość warstwy: 0.1mm',
-      'Obszar roboczy: 300x300x400mm',
-      'Materiały: PLA, ABS, PETG, TPU',
+      'Obszar roboczy: 360x360x360mm',
+      'Materiały: PLA, PETG, ABS, ASA, TPU, PA, PC',
       'Idealne do: Części funkcjonalnych, Prototypów, Narzędzi',
-      'Ekonomiczne dla większych części'
+      'Ekonomiczne dla większych części',
     ],
-    gradient: 'from-blue-600 to-purple-600'
+    gradient: 'from-blue-600 to-purple-600',
   },
   {
     icon: <Printer className="w-16 h-16 text-white" />,
@@ -25,19 +25,19 @@ const technologies = [
       'Obszar roboczy: 145x145x175mm',
       'Materiały: Standardowe, Wytrzymałe, Elastyczne żywice',
       'Idealne do: Modeli szczegółowych, Biżuterii, Stomatologii',
-      'Doskonałe wykończenie powierzchni'
+      'Doskonałe wykończenie powierzchni',
     ],
-    gradient: 'from-orange-500 to-orange-700'
-  }
+    gradient: 'from-orange-500 to-orange-700',
+  },
 ];
 
 const Technology = () => {
   return (
     <div id="technology" className="py-12 relative overflow-hidden">
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('images/bg.webp')`
+          backgroundImage: `url('images/bg.webp')`,
         }}
       />
       <div className="absolute inset-0 bg-black opacity-5" />
@@ -46,14 +46,18 @@ const Technology = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, type: "spring" }}
+          transition={{ duration: 0.8, type: 'spring' }}
           className="text-center mb-12"
         >
-          <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">JAK PRACUJEMY</p>
-          <h2 className="text-[#333333] text-4xl md:text-5xl font-bold mb-4">nasza technologia</h2>
+          <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">
+            JAK PRACUJEMY
+          </p>
+          <h2 className="text-[#333333] text-4xl md:text-5xl font-bold mb-4">
+            nasza technologia
+          </h2>
           <p className="text-[#333333] max-w-2xl mx-auto">
-            Używamy najnowocześniejszej technologii druku 3D, aby zapewnić najwyższą
-            jakość realizacji Twoich projektów.
+            Używamy najnowocześniejszej technologii druku 3D, aby zapewnić
+            najwyższą jakość realizacji Twoich projektów.
           </p>
         </motion.div>
 
@@ -64,11 +68,13 @@ const Technology = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, type: "spring" }}
+              transition={{ duration: 0.8, type: 'spring' }}
               whileHover={{ scale: 1.02 }}
               className="relative h-[280px] rounded-lg shadow-xl overflow-hidden group"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${tech.gradient}`}>
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${tech.gradient}`}
+              >
                 <div className="absolute inset-0 p-8 flex flex-col items-center justify-center text-white text-center transition-transform duration-300 group-hover:-translate-y-full">
                   <motion.div
                     whileHover={{ rotate: 360 }}
@@ -84,7 +90,7 @@ const Technology = () => {
                   <h3 className="text-2xl font-bold mb-4">{tech.title}</h3>
                   <ul className="space-y-2 text-left w-full">
                     {tech.specs.map((spec, i) => (
-                      <motion.li 
+                      <motion.li
                         key={i}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
