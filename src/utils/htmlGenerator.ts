@@ -269,7 +269,7 @@ const getCityContent = (city: {
       <div class="intro-section">
         <h1>Drukarnia 3D ${city.name}</h1>
         <p>
-          Szukasz profesjonalnego druku 3D ${city.preposition} ${city.nameLocative}? Jesteśmy lokalnym ekspertem w technologii FDM, oferującym szybkie i niezawodne usługi druku 3D dla firm i osób prywatnych. Nasza drukarnia 3D ${city.preposition} ${city.nameLocative} specjalizuje się w tworzeniu prototypów, części zamiennych i modeli projektowych w przystępnych cenach. Dzięki najnowocześniejszym drukarkom FDM i doświadczonemu zespołowi, zrealizujemy Twój projekt szybko i dokładnie - od pojedynczych elementów po większe serie produkcyjne.
+          Szukasz profesjonalnego druku 3D ${city.preposition} ${city.nameLocative}? Jesteśmy lokalnym ekspertem w technologii FDM, oferującym szybkie i niezawodne <a href="/druk-3d/">usługi druku 3D dla firm</a> i osób prywatnych. Nasza drukarnia 3D ${city.preposition} ${city.nameLocative} specjalizuje się w tworzeniu prototypów, części zamiennych i modeli projektowych w przystępnych cenach. Dzięki najnowocześniejszym drukarkom FDM i doświadczonemu zespołowi, zrealizujemy Twój projekt szybko i dokładnie - od pojedynczych elementów po większe serie produkcyjne.
         </p>
       </div>
 
