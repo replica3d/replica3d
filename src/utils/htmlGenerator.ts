@@ -4,6 +4,16 @@ import fs from 'fs';
 import path from 'path';
 import { VALID_ROUTES, isValidRoute } from '../config/routes';
 
+const updateMetaTag = ($: cheerio.CheerioAPI, name: string, content: string, isProperty: boolean = false) => {
+  const attribute = isProperty ? 'property' : 'name';
+  const existingTag = $(`meta[${attribute}="${name}"]`);
+  
+  if (existingTag.length) {
+    existingTag.attr('content', content);
+  } else {
+    $('head').append(`<meta ${attribute}="${name}" content="${content}">`);
+  }
+};
 
 interface PageContent {
   title: string;
@@ -419,35 +429,68 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
       continue;
     }
 
+    const metadata = getRouteMetadata(route);
     try {
       const $ = cheerio.load(template);
 
-      // Add common meta tags
-      $('head').append(`
-        <meta name="robots" content="index, follow">
-        <meta name="language" content="Polish">
-        <meta name="author" content="REPLICA3D">
-        <meta name="geo.region" content="PL-DS">
-        <meta name="geo.placename" content="Wrocław">
-        <link rel="preload" href="/images/hero.webp" as="image">
-        <link rel="preload" href="/images/druk-3d.webp" as="image">
-        <link rel="preload" href="/images/footer.webp" as="image">
-        <link rel="preload" href="/images/bg.webp" as="image">
-      `);
+      // Remove existing meta tags that we'll update
+      $('meta[name="robots"]').remove();
+      $('meta[name="language"]').remove();
+      $('meta[name="author"]').remove();
+      $('meta[name="geo.region"]').remove();
+      $('meta[name="geo.placename"]').remove();
+      $('meta[name="description"]').remove();
+      $('meta[name="title"]').remove();
+      $('meta[property="og:title"]').remove();
+      $('meta[property="og:description"]').remove();
+      $('meta[property="og:url"]').remove();
+      $('meta[property="twitter:title"]').remove();
+      $('meta[property="twitter:description"]').remove();
+      $('meta[property="twitter:url"]').remove();
+      
+      // Update title tag
+      $('title').text(metadata.title);
 
-      const metadata = getRouteMetadata(route);
+      // Add or update meta tags
+      updateMetaTag($, 'robots', metadata.noindex ? 'noindex, nofollow' : 'index, follow', false);
+      updateMetaTag($, 'language', 'Polish', false);
+      updateMetaTag($, 'author', 'REPLICA3D', false);
+      updateMetaTag($, 'geo.region', 'PL-DS', false);
+      updateMetaTag($, 'geo.placename', 'Wrocław', false);
+      updateMetaTag($, 'description', metadata.description, false);
+      updateMetaTag($, 'title', metadata.title, false);
+      
+      // Update OpenGraph meta tags
+      updateMetaTag($, 'og:title', metadata.title, true);
+      updateMetaTag($, 'og:description', metadata.description, true);
+      updateMetaTag($, 'og:url', `https://replica3d.pl${route}`, true);
+      
+      // Update Twitter meta tags
+      updateMetaTag($, 'twitter:title', metadata.title, true);
+      updateMetaTag($, 'twitter:description', metadata.description, true);
+      updateMetaTag($, 'twitter:url', `https://replica3d.pl${route}`, true);
+
+      // Update canonical URL
+      $('link[rel="canonical"]').remove();
+      $('head').append(`<link rel="canonical" href="https://replica3d.pl${route}">`);
+
+      // Add preload tags for images
+      $('link[rel="preload"][as="image"]').remove();
+      const preloadImages = [
+        '/images/hero.webp',
+        '/images/druk-3d.webp',
+        '/images/footer.webp',
+        '/images/bg.webp'
+      ];
+      
+      preloadImages.forEach(image => {
+        $('head').append(`<link rel="preload" href="${image}" as="image">`);
+      });
       const filePath = path.resolve(`dist/${metadata.path}.html`);
 
       // Clear any existing SEO content
       clearSEOContent($);
 
-      // Update all title and meta tags
-      $('title').text(metadata.title);
-      $('meta[name="description"]').attr('content', metadata.description);
-      if (metadata.noindex) {
-        $('meta[name="robots"]').attr('content', 'noindex, nofollow');
-      }
-      // Add style for SEO content
       $('head').append(`
         <style>
           .seo-content {
@@ -481,27 +524,6 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
           }
         </style>
       `);
-
-      $('meta[name="title"]').attr('content', metadata.title);
-      $('link[rel="canonical"]').attr('href', `https://replica3d.pl${route}`);
-      $('meta[property="og:url"]').attr(
-        'content',
-        `https://replica3d.pl${route}`
-      );
-      $('meta[property="twitter:url"]').attr(
-        'content',
-        `https://replica3d.pl${route}`
-      );
-      $('meta[property="og:title"]').attr('content', metadata.title);
-      $('meta[property="og:description"]').attr(
-        'content',
-        metadata.description
-      );
-      $('meta[property="twitter:title"]').attr('content', metadata.title);
-      $('meta[property="twitter:description"]').attr(
-        'content',
-        metadata.description
-      );
 
       // Add page content for SEO
       const pageContent = getPageContent(route, true);
