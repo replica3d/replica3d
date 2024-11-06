@@ -52,7 +52,7 @@ const Technology = () => {
           <p className="text-blue-600 text-sm font-semibold tracking-wider mb-2">
             JAK PRACUJEMY
           </p>
-          <h2 className="text-[#333333] text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-[#333333] text-4xl md:text-5xl font-bold mb-4" aria-label="Nasza technologia">
             nasza technologia
           </h2>
           <p className="text-[#333333] max-w-2xl mx-auto">
@@ -79,15 +79,16 @@ const Technology = () => {
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.8 }}
+                    aria-hidden="true"
                   >
                     {tech.icon}
                   </motion.div>
-                  <h3 className="text-2xl font-bold mt-4 mb-2">{tech.title}</h3>
+                  <h3 className="text-2xl font-bold mt-4 mb-2" aria-label={tech.title}>{tech.title}</h3>
                   <p className="text-lg text-gray-100">{tech.description}</p>
                 </div>
 
                 <div className="absolute inset-0 p-8 flex flex-col items-center justify-center text-white transition-transform duration-300 translate-y-full group-hover:translate-y-0">
-                  <h3 className="text-2xl font-bold mb-4">{tech.title}</h3>
+                  <h3 className="text-2xl font-bold mb-4 sr-only">{tech.title}</h3>
                   <ul className="space-y-2 text-left w-full">
                     {tech.specs.map((spec, i) => (
                       <motion.li

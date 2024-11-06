@@ -21,8 +21,20 @@ const preloadImages = [
 
 const seoContentStyles = `
   <style>
-    .seo-content{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;z-index:-1;opacity:.01;pointer-events:none;visibility:hidden;-webkit-user-select:none;-moz-user-select:none;user-select:none;display:none!important}
-    .city-page .seo-content{display:none!important;visibility:hidden!important}
+    .seo-content {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      visibility: hidden !important;
+      display: none !important;
+    }
+    @media print { .seo-content { display: none !important; } }
     #root{display:block!important;visibility:visible!important}
   </style>
 `;
@@ -163,7 +175,7 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
       const pageContent = getPageContent(route, true);
 
       if (pageContent.isStatic) {
-        const seoDiv = `<div class="seo-content" aria-hidden="true" data-nosnippet>${pageContent.content}</div>`;
+        const seoDiv = `<noscript><div class="seo-content" aria-hidden="true" data-nosnippet tabindex="-1">${pageContent.content}</div></noscript>`;
         if (route.includes('/druk-3d-')) {
           $('.city-page').prepend(seoDiv);
         } else {

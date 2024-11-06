@@ -44,7 +44,8 @@ const Footer = () => {
       <div className="relative max-w-6xl mx-auto px-4 py-12 z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           <div>
-            <h3 className="text-2xl font-bold mb-4">REPLICA3D</h3>
+            <h3 className="text-2xl font-bold mb-4 sr-only">O nas</h3>
+            <div className="text-2xl font-bold mb-4">REPLICA3D</div>
             <p className="text-gray-300">
               Profesjonalne usługi druku 3D dla wszystkich Twoich potrzeb. Od
               prototypów po serie produkcyjne, mamy wszystko, czego
@@ -52,7 +53,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4">Szybkie Linki</h3>
+            <h3 className="text-2xl font-bold mb-4" aria-label="Menu nawigacyjne">Szybkie Linki</h3>
             <ul className="space-y-2">
               <li>
                 <a
@@ -93,7 +94,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4">Kontakt</h3>
+            <h3 className="text-2xl font-bold mb-4" aria-label="Informacje kontaktowe">Kontakt</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail size={20} className="text-gray-300 flex-shrink-0" />
@@ -138,7 +139,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4">Śledź Nas</h3>
+            <h3 className="text-2xl font-bold mb-4" aria-label="Media społecznościowe">Śledź Nas</h3>
             <div className="flex space-x-4">
               <a
                 href="mailto:info@replica3d.pl"
