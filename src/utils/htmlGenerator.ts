@@ -6,9 +6,10 @@ import path from 'path';
 interface PageContent {
   title: string;
   content: string;
+  isStatic?: boolean;
 }
 
-const getHomeContent = (): PageContent => ({
+const getHomeContent = (isStatic: boolean = false): PageContent => ({
   title: 'REPLICA3D - Druk 3D na zamówienie – Wydruki 3D Wrocław',
   content: `
     <main class="seo-content">
@@ -421,9 +422,16 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
       // Add style for SEO content
       $('head').append(`
         <style>
-          .seo-content {
-            display: none;
-            visibility: hidden;
+          /* Hide SEO content from users but keep it accessible to search engines */
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
           }
         </style>
       `);
@@ -450,8 +458,10 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
       );
 
       // Add page content for SEO
-      const pageContent = getPageContent(route);
-      $('#root').before(`<div id="seo-content">${pageContent.content}</div>`);
+      const pageContent = getPageContent(route, true);
+      if (pageContent.isStatic) {
+        $('#root').before(`<div class="seo-content" role="complementary" aria-hidden="true">${pageContent.content}</div>`);
+      }
 
       // Create directory if needed
       const dir = path.dirname(filePath);
