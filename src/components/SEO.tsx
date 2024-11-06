@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
+import {
+  getBaseMetaTags,
+  getPrintingMetaTags,
+  getCityMetaTags,
+  get404MetaTags
+} from '../utils/metaTagsGenerator';
 
-interface SEOProps {
-  title: string;
-  description: string;
-  canonicalUrl: string;
-  noindex?: boolean;
-  schema?: object;
-}
+const SEO: React.FC = () => {
+  const location = useLocation();
+  
+  const metaTags = useMemo(() => {
+    const path = location.pathname;
+    
+    if (path === '/') return getBaseMetaTags();
+    if (path === '/druk-3d') return getPrintingMetaTags();
+    if (path === '/404') return get404MetaTags();
+    
+    if (path.startsWith('/druk-3d-')) {
+      const cityUrl = path.replace('/druk-3d-', '');
+      return getCityMetaTags(cityUrl);
+    }
+    
+    return get404MetaTags();
+  }, [location.pathname]);
 
-const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, schema, noindex = false }) => {
-  // Ensure the canonical URL is absolute
-  const absoluteUrl = canonicalUrl.startsWith('http') 
-    ? canonicalUrl 
-    : `https://replica3d.pl${canonicalUrl.startsWith('/') ? '' : '/'}${canonicalUrl}`;
+  const {
+    title,
+    description,
+    url,
+    imageUrl,
+    noindex,
+    schema
+  } = metaTags;
 
   return (
     <Helmet>
@@ -24,17 +44,17 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, schema, noi
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={absoluteUrl} />
+      <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="https://replica3d.pl/images/hero.webp" />
+      <meta property="og:image" content={imageUrl} />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={absoluteUrl} />
+      <meta property="twitter:url" content={url} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content="https://replica3d.pl/images/hero.webp" />
+      <meta property="twitter:image" content={imageUrl} />
 
       {/* Additional SEO Meta Tags */}
       <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
@@ -44,7 +64,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, schema, noi
       <meta name="geo.placename" content="Wrocław" />
       
       {/* Canonical URL */}
-      <link rel="canonical" href={absoluteUrl} />
+      <link rel="canonical" href={url} />
 
       {/* Schema.org markup */}
       {schema && (

@@ -9,12 +9,7 @@ import SEO from '../components/SEO';
 const NotFoundPage = () => {
   return (
     <>
-      <SEO
-        title="Ups! Zerwane połączenie | REPLICA3D"
-        description="Przepraszamy, ale strona, której szukasz, nie istnieje lub została przeniesiona."
-        canonicalUrl="https://replica3d.pl/404"
-        noindex={true}
-      />
+      <SEO />
       <Navbar />
       <div className="min-h-[calc(100vh-200px)] flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 px-4">
         <motion.div 

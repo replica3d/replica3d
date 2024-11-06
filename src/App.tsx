@@ -25,14 +25,13 @@ function ScrollToTop() {
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen">
+      <div className="min-h-screen relative">
         <MouseTrail />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/druk-3d" element={<PrintingPage />} />
-          {Object.values(cities)
-            .map(city => (
+          {Object.values(cities).map(city => (
             <Route 
               key={city.url}
               path={`/druk-3d-${city.url}`} 

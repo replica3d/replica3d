@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -11,22 +11,7 @@ import { cities } from '../data/cities';
 const PrintingPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Usługi druku 3D | Druk 3D na zamówienie Wrocław - REPLICA3D</title>
-        <meta
-          name="description"
-          content="Profesjonalne usługi druku 3D we Wrocławiu. Oferujemy druk 3D na zamówienie, wydruki 3D FDM i SLA, szybka realizacja i konkurencyjne ceny. Sprawdź naszą ofertę!"
-        />
-        <meta
-          property="og:title"
-          content="Usługi druku 3D | Druk 3D na zamówienie Wrocław - REPLICA3D"
-        />
-        <meta
-          property="og:description"
-          content="Profesjonalne usługi druku 3D we Wrocławiu. Oferujemy druk 3D na zamówienie, wydruki 3D FDM i SLA, szybka realizacja i konkurencyjne ceny. Sprawdź naszą ofertę!"
-        />
-        <link rel="canonical" href="https://replica3d.pl/druk-3d" />
-      </Helmet>
+      <SEO />
 
       <Navbar />
 

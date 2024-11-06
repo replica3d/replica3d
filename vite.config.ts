@@ -5,6 +5,7 @@ import path from 'path';
 import { generateStaticHtml } from './src/utils/htmlGenerator';
 
 export default defineConfig({
+  base: '/',
   plugins: [
     react(),
     {
@@ -15,6 +16,28 @@ export default defineConfig({
       }
     }
   ],
-  server: { historyApiFallback: true },
-  preview: { historyApiFallback: true }
+  server: {
+    port: 3000,
+    strictPort: true,
+    historyApiFallback: {
+      disableDotRule: true
+    }
+  },
+  preview: {
+    port: 3000,
+    strictPort: true,
+    historyApiFallback: {
+      disableDotRule: true
+    }
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  }
 });
