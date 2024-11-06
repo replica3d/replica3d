@@ -73,7 +73,7 @@ const CityPrintingPage: React.FC<CityPageProps> = ({ city, allCities }) => {
   };
 
   return (
-    <>
+    <div className="city-page">
       <SEO
         title={title}
         description={description}
@@ -84,7 +84,7 @@ const CityPrintingPage: React.FC<CityPageProps> = ({ city, allCities }) => {
       <Navbar />
       <CityHero title={`druk 3d ${city.name.toLowerCase()}`} />
 
-      <div className="max-w-6xl mx-auto px-4 py-10">
+      <main className="max-w-6xl mx-auto px-4 py-10">
         <div className="prose prose-lg max-w-none text-[#333333]">
           <CityIntro
             cityName={city.name}
@@ -99,11 +99,11 @@ const CityPrintingPage: React.FC<CityPageProps> = ({ city, allCities }) => {
           />
           <CitiesList cities={allCities} />
         </div>
-      </div>
+      </main>
 
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -450,16 +450,34 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
       // Add style for SEO content
       $('head').append(`
         <style>
-          /* Hide SEO content from users but keep it accessible to search engines */
-            position: absolute !important;
-            width: 1px !important;
-            height: 1px !important;
-            padding: 0 !important;
-            margin: -1px !important;
+          .seo-content {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
             overflow: hidden;
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border: 0;
+            z-index: -1;
+            opacity: 0.01;
+            pointer-events: none;
+            visibility: hidden;
+            user-select: none;
+            display: none !important;
+          }
+
+          /* Hide SEO content in city pages */
+          .city-page .seo-content {
+            display: none !important;
+            visibility: hidden !important;
+          }
+
+          /* Ensure React content is visible */
+          #root {
+            display: block !important;
+            visibility: visible !important;
           }
         </style>
       `);
@@ -488,7 +506,12 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
       // Add page content for SEO
       const pageContent = getPageContent(route, true);
       if (pageContent.isStatic) {
-        $('#root').before(`<div class="seo-content" role="complementary" aria-hidden="true">${pageContent.content}</div>`);
+        const seoDiv = `<div class="seo-content" aria-hidden="true" data-nosnippet>${pageContent.content}</div>`;
+        if (route.includes('/druk-3d-')) {
+          $('.city-page').prepend(seoDiv);
+        } else {
+          $('#root').before(seoDiv);
+        }
       }
 
       // Create directory if needed
