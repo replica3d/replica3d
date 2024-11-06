@@ -5,10 +5,11 @@ interface SEOProps {
   title: string;
   description: string;
   canonicalUrl: string;
+  noindex?: boolean;
   schema?: object;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, schema }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, schema, noindex = false }) => {
   // Ensure the canonical URL is absolute
   const absoluteUrl = canonicalUrl.startsWith('http') 
     ? canonicalUrl 
@@ -36,7 +37,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonicalUrl, schema }) =
       <meta property="twitter:image" content="https://replica3d.pl/images/hero.webp" />
 
       {/* Additional SEO Meta Tags */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
       <meta name="language" content="Polish" />
       <meta name="author" content="REPLICA3D" />
       <meta name="geo.region" content="PL-DS" />

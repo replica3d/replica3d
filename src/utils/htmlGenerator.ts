@@ -2,10 +2,13 @@ import { cities } from '../data/cities';
 import * as cheerio from 'cheerio';
 import fs from 'fs';
 import path from 'path';
+import { VALID_ROUTES, isValidRoute } from '../config/routes';
+
 
 interface PageContent {
   title: string;
   content: string;
+  isStatic?: boolean;
   isStatic?: boolean;
 }
 
@@ -144,7 +147,7 @@ const getHomeContent = (isStatic: boolean = false): PageContent => ({
   `,
 });
 
-const getPrintingContent = (): PageContent => ({
+const getPrintingContent = (isStatic: boolean = false): PageContent => ({
   title: 'Usługi druku 3D | Druk 3D na zamówienie Wrocław - REPLICA3D',
   content: `
     <main class="seo-content">
@@ -259,14 +262,17 @@ const getPrintingContent = (): PageContent => ({
   `,
 });
 
-const getCityContent = (city: {
+const getCityContent = (
+  city: {
   name: string;
   nameLocative: string;
   preposition: string;
-}): PageContent => ({
+  },
+  isStatic: boolean = false
+): PageContent => ({
   title: `Druk 3D ${city.name}`,
   content: `
-    <main class="seo-content">
+    <main>
       <div class="intro-section">
         <h1>Drukarnia 3D ${city.name}</h1>
         <p>
@@ -332,22 +338,37 @@ const getCityContent = (city: {
       </section>
     </main>
   `,
+  isStatic
 });
 
-const getPageContent = (route: string): PageContent => {
+const getPageContent = (route: string, isStatic: boolean = false): PageContent => {
   if (route === '/') return getHomeContent();
   if (route === '/druk-3d') return getPrintingContent();
+  if (route === '/404') return get404Content();
 
   const city = Object.values(cities).find((c) => route === `/druk-3d-${c.url}`);
-  if (city) return getCityContent(city);
+  if (city) return getCityContent(city, isStatic);
 
-  throw new Error(`Unknown route: ${route}`);
+  return get404Content();
 };
+
+const get404Content = (): PageContent => ({
+  title: '404 - Strona nie została znaleziona | REPLICA3D',
+  description: 'Przepraszamy, ale strona, której szukasz, nie istnieje lub została przeniesiona.',
+  content: `
+    <main class="error-page">
+      <h1>404 - Strona nie została znaleziona</h1>
+      <p>Przepraszamy, ale strona, której szukasz, nie istnieje lub została przeniesiona.</p>
+    </main>
+  `,
+  isStatic: true
+});
 
 interface RouteMetadata {
   title: string;
   description: string;
   path: string;
+  noindex?: boolean;
 }
 
 const getRouteMetadata = (route: string): RouteMetadata => {
@@ -378,7 +399,13 @@ const getRouteMetadata = (route: string): RouteMetadata => {
     };
   }
 
-  throw new Error(`Unknown route: ${route}`);
+  // Return 404 metadata for invalid routes
+  return {
+    title: '404 - Strona nie została znaleziona | REPLICA3D',
+    description: 'Przepraszamy, ale strona, której szukasz, nie istnieje lub została przeniesiona.',
+    path: '404',
+    noindex: true
+  };
 };
 
 const clearSEOContent = ($: cheerio.CheerioAPI): void => {
@@ -386,14 +413,12 @@ const clearSEOContent = ($: cheerio.CheerioAPI): void => {
 };
 
 export const generateStaticHtml = async (template: string): Promise<void> => {
-  const routes = [
-    '/',
-    '/druk-3d',
-    ...Object.values(cities).map((city) => `/druk-3d-${city.url}`),
-  ];
-
   // Generate HTML for each route
-  for (const route of routes) {
+  for (const route of VALID_ROUTES) {
+    if (!isValidRoute(route)) {
+      continue;
+    }
+
     try {
       const $ = cheerio.load(template);
 
@@ -419,6 +444,9 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
       // Update all title and meta tags
       $('title').text(metadata.title);
       $('meta[name="description"]').attr('content', metadata.description);
+      if (metadata.noindex) {
+        $('meta[name="robots"]').attr('content', 'noindex, nofollow');
+      }
       // Add style for SEO content
       $('head').append(`
         <style>
@@ -472,8 +500,8 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
       // Write the file
       fs.writeFileSync(filePath, $.html());
       console.log(`Generated: ${metadata.path}.html`);
-    } catch (error) {
-      console.error(`Failed to generate HTML for route ${route}:`, error);
+    } catch (error: any) {
+      console.error(`Failed to generate HTML for route ${route}: ${error.message}`);
     }
   }
 };
