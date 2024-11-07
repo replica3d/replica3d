@@ -3,6 +3,7 @@ import path from 'path';
 import cheerio from 'cheerio';
 import { VALID_ROUTES, isValidRoute } from '../config/routes';
 import { getBaseMetaTags, getPrintingMetaTags, getCityMetaTags, get404MetaTags } from './metaTagsGenerator';
+import { cities } from '../data/cities';
 
 const getMetaTagsForRoute = (route: string) => {
   if (route === '/') return getBaseMetaTags();
@@ -42,6 +43,23 @@ const seoContentStyles = `
   }
 </style>`;
 
+const getCitiesList = () => {
+  const sortedCities = Object.values(cities).sort((a, b) => a.name.localeCompare(b.name));
+  return `
+    <div>
+      <h2>Druk 3D w Polsce</h2>
+      <p>Oferujemy usługi druku 3D w następujących miastach:</p>
+      <ul>
+        ${sortedCities.map(city => `
+          <li>
+            <a href="/druk-3d-${city.url}">Druk 3D ${city.name}</a>
+          </li>
+        `).join('')}
+      </ul>
+    </div>
+  `;
+};
+
 const getPageContent = (route: string, isStatic: boolean = false) => {
   if (route === '/') {
     return {
@@ -50,6 +68,7 @@ const getPageContent = (route: string, isStatic: boolean = false) => {
         <div>
           <h1>REPLICA3D - Profesjonalny druk 3D we Wrocławiu</h1>
           <p>Witaj w REPLICA3D - profesjonalnej drukarni 3D oferującej kompleksowe usługi druku 3D. Specjalizujemy się w druku FDM i SLA, zapewniając najwyższą jakość wydruków 3D dla klientów indywidualnych i firm.</p>
+          ${getCitiesList()}
         </div>`
     };
   }
@@ -61,17 +80,23 @@ const getPageContent = (route: string, isStatic: boolean = false) => {
         <div>
           <h1>Usługi druku 3D - REPLICA3D</h1>
           <p>Oferujemy profesjonalne usługi druku 3D w technologiach FDM i SLA. Specjalizujemy się w prototypowaniu, małoseryjnej produkcji i tworzeniu modeli koncepcyjnych.</p>
+          ${getCitiesList()}
         </div>`
     };
   }
 
   if (route.startsWith('/druk-3d-')) {
+    const cityUrl = route.replace('/druk-3d-', '');
+    const city = Object.values(cities).find(c => c.url === cityUrl);
+    if (!city) return { isStatic: false, content: '' };
+
     return {
       isStatic: true,
       content: `
         <div>
-          <h1>Druk 3D ${route.replace('/druk-3d-', '').replace('-', ' ')}</h1>
-          <p>Profesjonalne usługi druku 3D w technologii FDM i SLA. Oferujemy szybką realizację, konkurencyjne ceny i najwyższą jakość wydruków 3D.</p>
+          <h1>Druk 3D ${city.name}</h1>
+          <p>Profesjonalne usługi druku 3D w technologii FDM i SLA ${city.preposition} ${city.nameLocative}. Oferujemy szybką realizację, konkurencyjne ceny i najwyższą jakość wydruków 3D.</p>
+          ${getCitiesList()}
         </div>`
     };
   }
