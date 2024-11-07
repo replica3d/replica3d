@@ -10,7 +10,32 @@ export const VALID_ROUTES = [
   '/druk-3d-gliwice', '/druk-3d-zabrze', '/druk-3d-olsztyn',
   '/druk-3d-bielsko-biala', '/druk-3d-bytom', '/druk-3d-ruda-slaska',
   '/druk-3d-rybnik', '/druk-3d-tychy', '/druk-3d-gorzow-wielkopolski',
-  '/druk-3d-dabrowa-gornicza', '/druk-3d-elblag', '/druk-3d-plock'
+  '/druk-3d-dabrowa-gornicza', '/druk-3d-plock', '/druk-3d-elblag',
+  '/druk-3d-opole', '/druk-3d-walbrzych', '/druk-3d-wloclawek',
+  '/druk-3d-zielona-gora', '/druk-3d-tarnow', '/druk-3d-chorzow',
+  '/druk-3d-kalisz', '/druk-3d-koszalin', '/druk-3d-legnica',
+  '/druk-3d-grudziadz', '/druk-3d-slupsk', '/druk-3d-jaworzno',
+  '/druk-3d-jastrzebie-zdroj', '/druk-3d-nowy-sacz', '/druk-3d-jelenia-gora',
+  '/druk-3d-siedlce', '/druk-3d-myslowice', '/druk-3d-konin',
+  '/druk-3d-piotrkow-trybunalski', '/druk-3d-ostroleka', '/druk-3d-pabianice',
+  '/druk-3d-lomza', '/druk-3d-lubin', '/druk-3d-tomaszow-mazowiecki',
+  '/druk-3d-chelm', '/druk-3d-przemysl', '/druk-3d-stargard',
+  '/druk-3d-zamosc', '/druk-3d-kedzierzyn-kozle', '/druk-3d-lowicz',
+  '/druk-3d-nowa-sol', '/druk-3d-sanok', '/druk-3d-swietochlowice',
+  '/druk-3d-skarzysko-kamienna', '/druk-3d-knurow', '/druk-3d-kolobrzeg',
+  '/druk-3d-tarnowskie-gory', '/druk-3d-mielec', '/druk-3d-tczew',
+  '/druk-3d-otwock', '/druk-3d-zyrardow', '/druk-3d-starachowice',
+  '/druk-3d-pruszkow', '/druk-3d-gniezno', '/druk-3d-leszno',
+  '/druk-3d-swidnica', '/druk-3d-zgorzelec', '/druk-3d-pulawy',
+  '/druk-3d-inowroclaw', '/druk-3d-krosno', '/druk-3d-zdunska-wola',
+  '/druk-3d-olkusz', '/druk-3d-ostrow-wielkopolski', '/druk-3d-ciechanow',
+  '/druk-3d-piaseczno', '/druk-3d-srem', '/druk-3d-bartoszyce',
+  '/druk-3d-koscierzyna', '/druk-3d-belchatow', '/druk-3d-minsk-mazowiecki',
+  '/druk-3d-brzeg', '/druk-3d-wejherowo', '/druk-3d-sroda-wielkopolska',
+  '/druk-3d-lubartow', '/druk-3d-bochnia', '/druk-3d-pisz',
+  '/druk-3d-nowy-targ', '/druk-3d-bielsk-podlaski', '/druk-3d-raciborz',
+  '/druk-3d-olesno', '/druk-3d-zagan', '/druk-3d-luban',
+  '/druk-3d-nysa', '/druk-3d-lancut'
 ] as const;
 
 export const isValidRoute = (path: string): boolean => {
