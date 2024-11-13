@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /?*
 
 # Sitemap
 Sitemap: https://replica3d.pl/sitemap.xml
