@@ -11,3 +11,6 @@ Crawl-delay: 1
 
 # Host
 Host: https://replica3d.pl
+
+User-agent: AhrefsBot
+Crawl-Delay: 2

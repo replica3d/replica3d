@@ -256,7 +256,7 @@ export const cities: Record<string, City> = {
   sulechow: { name: 'Sulechów', nameLocative: 'Sulechowie', url: 'sulechow', preposition: 'w' },
   swiebodzin: { name: 'Świebodzin', nameLocative: 'Świebodzinie', url: 'swiebodzin', preposition: 'w' },
   aleksandrow_lodzki: { name: 'Aleksandrów Łódzki', nameLocative: 'Aleksandrowie Łódzkim', url: 'aleksandrow-lodzki', preposition: 'w' },
-  lezayk: { name: 'Łęczyca', nameLocative: 'Łęczycy', url: 'lezajsk', preposition: 'w' },
+  leczyca: { name: 'Łęczyca', nameLocative: 'Łęczycy', url: 'leczyca', preposition: 'w' },
   opoczno: { name: 'Opoczno', nameLocative: 'Opocznie', url: 'opoczno', preposition: 'w' },
   garwolin: { name: 'Garwolin', nameLocative: 'Garwolinie', url: 'garwolin', preposition: 'w' },
   gora_kalwaria: { name: 'Góra Kalwaria', nameLocative: 'Górze Kalwarii', url: 'gora-kalwaria', preposition: 'w' },
