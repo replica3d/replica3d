@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
@@ -13,8 +13,14 @@ interface CitiesListProps {
 }
 
 const CitiesList: React.FC<CitiesListProps> = ({ cities }) => {
-  // Sort cities alphabetically by name
-  const sortedCities = [...cities].sort((a, b) => a.name.localeCompare(b.name));
+  // Randomly select 20 cities using Fisher-Yates shuffle algorithm
+  const randomCities = useMemo(() => {
+    const shuffled = [...cities]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 20)
+      .sort((a, b) => a.name.localeCompare(b.name));
+    return shuffled;
+  }, [cities]);
 
   return (
     <div className="mb-8">
@@ -24,10 +30,10 @@ const CitiesList: React.FC<CitiesListProps> = ({ cities }) => {
       >
         <h2 className="text-3xl font-bold mb-3 mt-0 text-[#333333]">Druk 3D w Polsce i na Świecie</h2>
         <p className="text-base mb-4 text-[#333333]">
-          Działamy bez granic! REPLICA3D świadczy profesjonalne usługi druku 3D w Polsce i za granicą. Realizujemy wysyłkę do każdego miejsca na świecie, zapewniając bezpieczne dostarczenie wydruków. Nasi klienci pochodzą między innymi z następujących miast:
+          Działamy bez granic! REPLICA3D świadczy profesjonalne usługi druku 3D w Polsce i za granicą. Realizujemy wysyłkę do każdego miejsca na świecie, zapewniając bezpieczne dostarczenie wydruków. Oto niektóre z miast, w których działamy:
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
-          {sortedCities.map((city) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
+          {randomCities.map((city) => (
             <motion.div
               key={city.url}
               whileHover={{ scale: 1.02 }}
