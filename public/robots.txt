@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /assets/
+Disallow: /images/
 Disallow: /?*
 
 # Sitemap
@@ -9,8 +11,8 @@ Sitemap: https://replica3d.pl/sitemap.xml
 # Crawl-delay
 Crawl-delay: 1
 
-# Host
-Host: https://replica3d.pl
-
 User-agent: AhrefsBot
 Crawl-Delay: 2
+
+# Host
+Host: https://replica3d.pl
