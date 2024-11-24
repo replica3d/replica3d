@@ -22,14 +22,14 @@ const CityHero: React.FC<CityHeroProps> = ({ title }) => {
         style={{ backgroundColor: '#153243', opacity: 0.5 }}
       />
       <div className="relative z-10 max-w-6xl mx-auto px-4 w-full h-full">
-        <motion.h2
+        <motion.h1
           className="absolute bottom-0 font-['Poppins'] font-bold text-4xl md:text-6xl text-white text-left tracking-tight -mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {title}
-        </motion.h2>
+        </motion.h1>
       </div>
     </div>
   );

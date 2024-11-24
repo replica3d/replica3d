@@ -41,9 +41,9 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Link to="/" className="flex-shrink-0">
-            <h1 className={`font-bungee text-3xl md:text-6xl transition-colors duration-300 ${textColor}`}>
+            <div className={`font-bungee text-3xl md:text-6xl transition-colors duration-300 ${textColor}`}>
               REPLICA3D
-            </h1>
+            </div>
           </Link>
         </div>
 

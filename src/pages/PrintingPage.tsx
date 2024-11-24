@@ -12,7 +12,6 @@ const PrintingPage = () => {
   return (
     <>
       <SEO />
-
       <Navbar />
 
       <div className="relative h-[200px] md:h-[300px] overflow-hidden">
@@ -30,14 +29,14 @@ const PrintingPage = () => {
           style={{ backgroundColor: '#153243', opacity: 0.5 }}
         />
         <div className="relative z-10 max-w-6xl mx-auto px-4 w-full h-full">
-          <motion.h2
-              className="absolute bottom-0 font-['Poppins'] font-bold text-6xl md:text-8xl text-white text-left tracking-tight -mb-2"
+          <motion.h1
+            className="absolute bottom-0 font-['Poppins'] font-bold text-6xl md:text-8xl text-white text-left tracking-tight -mb-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             druk 3d
-          </motion.h2>
+          </motion.h1>
         </div>
       </div>
 
@@ -104,9 +103,9 @@ const PrintingPage = () => {
 
           {/* Pricing Section */}
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-            <h3 className="text-2xl font-semibold mb-6 mt-0">
+            <h2 className="text-2xl font-semibold mb-6 mt-0">
               Ile kosztuje usługa drukowania 3D?
-            </h3>
+            </h2>
             <div className="space-y-4">
               <p className="text-base">
                 Najważniejszym, co trzeba ustalić w celu wyceny{' '}
@@ -115,9 +114,9 @@ const PrintingPage = () => {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose">
                 <div className="bg-gray-50 p-6 rounded-xl">
-                  <h4 className="text-lg font-semibold mb-4">
+                  <h3 className="text-lg font-semibold mb-4">
                     Koszty podstawowe
-                  </h4>
+                  </h3>
                   <ul className="text-base space-y-2">
                     <li className="flex items-center space-x-2">
                       <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
@@ -134,9 +133,9 @@ const PrintingPage = () => {
                   </ul>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-xl">
-                  <h4 className="text-lg font-semibold mb-4">
+                  <h3 className="text-lg font-semibold mb-4">
                     Koszty dodatkowe
-                  </h4>
+                  </h3>
                   <ul className="text-base space-y-2">
                     <li className="flex items-center space-x-2">
                       <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
@@ -158,9 +157,9 @@ const PrintingPage = () => {
 
           {/* Time Estimation Section */}
           <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 mb-12">
-            <h3 className="text-2xl font-semibold mb-6 mt-0">
+            <h2 className="text-2xl font-semibold mb-6 mt-0">
               Ile czasu zajmuje drukowanie 3D?
-            </h3>
+            </h2>
             <div className="space-y-6">
               <p className="text-base">
                 Aby zrozumieć, ile czasu zajmie druk, musimy wziąć pod uwagę
@@ -189,9 +188,9 @@ const PrintingPage = () => {
                     className="bg-white p-6 rounded-xl shadow-sm"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <h4 className="text-lg font-semibold mb-2">
+                    <h3 className="text-lg font-semibold mb-2">
                       {factor.title}
-                    </h4>
+                    </h3>
                     <p className="text-base">{factor.description}</p>
                   </motion.div>
                 ))}
@@ -201,9 +200,9 @@ const PrintingPage = () => {
 
           {/* External Resources */}
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-            <h3 className="text-2xl font-semibold mb-6 mt-0">
+            <h2 className="text-2xl font-semibold mb-6 mt-0">
               Przydatne zasoby
-            </h3>
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose">
               {[
                 {
@@ -240,9 +239,9 @@ const PrintingPage = () => {
                   className="block bg-gray-50 p-6 rounded-xl hover:shadow-md transition-shadow"
                   whileHover={{ y: -5 }}
                 >
-                  <h4 className="text-lg font-semibold mb-2">
+                  <h3 className="text-lg font-semibold mb-2">
                     {resource.name}
-                  </h4>
+                  </h3>
                   <p className="text-base">{resource.description}</p>
                 </motion.a>
               ))}

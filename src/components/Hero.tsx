@@ -43,11 +43,11 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-white space-y-0 w-full"
         >
-          <div className="font-extrabold text-4xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-8xl leading-none text-left md:text-left">
-            <div>we make</div>
-            <div>awesome</div>
-            <div>prints</div>
-          </div>
+          <h1 className="font-extrabold text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-7xl leading-none text-left md:text-left">
+            <div>Druk 3D </div>
+            <div>na zamówienie </div>
+            <div>Wrocław</div>
+          </h1>
         </motion.div>
       </div>
     </div>

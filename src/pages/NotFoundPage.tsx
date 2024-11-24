@@ -32,7 +32,7 @@ const NotFoundPage = () => {
             </motion.div>
           </div>
           <h1 className="text-4xl font-bold text-[#333333] mb-4">Ups! Zerwane połączenie</h1>
-          <h2 className="text-xl text-gray-600 mb-6">Wygląda na to, że ten link jest uszkodzony</h2>
+          <p className="text-xl text-gray-600 mb-6">Wygląda na to, że ten link jest uszkodzony</p>
           <p className="text-gray-600 mb-8 max-w-md mx-auto">
             Nie martw się! Możesz wrócić do strony głównej lub cofnąć się do poprzedniej strony.
           </p>
