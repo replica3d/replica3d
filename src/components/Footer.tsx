@@ -88,13 +88,13 @@ const Footer = () => {
                   onClick={(e) => handleLinkClick(e, 'contact')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Kontakt
+                  Wy
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4" aria-label="Informacje kontaktowe">Wycena druku 3D</h3>
+            <h3 className="text-2xl font-bold mb-4" aria-label="Informacje kontaktowe">Wycena Druku 3D</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail size={20} className="text-gray-300 flex-shrink-0" />

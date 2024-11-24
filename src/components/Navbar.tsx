@@ -59,7 +59,7 @@ const Navbar = () => {
             onClick={scrollToContact}
             className="flex-shrink-0 bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
-            Kontakt
+            Wycena
           </button>
         </div>
 
@@ -97,7 +97,7 @@ const Navbar = () => {
                 onClick={scrollToContact}
                 className="w-full max-w-[200px] bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
               >
-                Kontakt
+                Wycena
               </button>
             </div>
           </motion.div>
