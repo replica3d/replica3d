@@ -45,7 +45,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-4 sr-only">O nas</h3>
-            <div className="text-2xl font-bold mb-4">REPLICA3D</div>
+            <div className="text-2xl font-bold mb-4">Drukarnia 3D</div>
             <p className="text-gray-300">
               Profesjonalne usługi druku 3D dla wszystkich Twoich potrzeb. Od
               prototypów po serie produkcyjne, mamy wszystko, czego
@@ -94,7 +94,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4" aria-label="Informacje kontaktowe">Kontakt</h3>
+            <h3 className="text-2xl font-bold mb-4" aria-label="Informacje kontaktowe">Wycena druku 3D</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail size={20} className="text-gray-300 flex-shrink-0" />
