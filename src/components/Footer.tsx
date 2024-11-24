@@ -44,8 +44,7 @@ const Footer = () => {
       <div className="relative max-w-6xl mx-auto px-4 py-12 z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           <div>
-            <h3 className="text-2xl font-bold mb-4 sr-only">O nas</h3>
-            <div className="text-2xl font-bold mb-4">Drukarnia 3D</div>
+            <h3 className="text-2xl font-bold mb-4" aria-label="O nas">Drukarnia 3D</h3>
             <p className="text-gray-300">
               Profesjonalne usługi druku 3D dla wszystkich Twoich potrzeb. Od
               prototypów po serie produkcyjne, mamy wszystko, czego
