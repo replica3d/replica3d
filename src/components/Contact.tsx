@@ -7,7 +7,13 @@ import { storage } from '../config/firebase';
 import { v4 as uuidv4 } from 'uuid';
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB in bytes
-const ALLOWED_TYPES = ['.stl', '.step', '.zip'];
+
+// Define allowed file types with their MIME types
+const ALLOWED_TYPES = {
+  '.stl': ['model/stl', 'application/octet-stream', 'application/vnd.ms-pki.stl'],
+  '.step': ['application/STEP', 'application/step', 'application/x-step', 'application/octet-stream'],
+  '.zip': ['application/zip', 'application/x-zip-compressed', 'application/octet-stream']
+};
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -26,7 +32,9 @@ const Contact = () => {
     }
 
     const fileExtension = '.' + file.name.split('.').pop()?.toLowerCase();
-    if (!ALLOWED_TYPES.includes(fileExtension)) {
+    const allowedExtensions = Object.keys(ALLOWED_TYPES);
+    
+    if (!allowedExtensions.includes(fileExtension)) {
       setFileError('Niedozwolony typ pliku. Dozwolone formaty: .stl, .step, .zip');
       return false;
     }
@@ -149,7 +157,6 @@ const Contact = () => {
                 type="file"
                 ref={fileInputRef}
                 onChange={handleFileChange}
-                accept=".stl,.step,.zip"
                 className="hidden"
                 id="file-upload"
               />
