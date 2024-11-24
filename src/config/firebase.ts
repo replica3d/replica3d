@@ -11,5 +11,5 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase only if no apps exist
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);

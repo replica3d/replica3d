@@ -16,7 +16,6 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
-  const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const validateFile = (file: File): boolean => {
     setFileError(null);
@@ -60,11 +59,14 @@ const Contact = () => {
         const fileName = `${uuidv4()}.${fileExtension}`;
         const storageRef = ref(storage, `uploads/${fileName}`);
         
-        await uploadBytes(storageRef, selectedFile);
+        const metadata = {
+          contentType: selectedFile.type || 'application/octet-stream'
+        };
+        
+        await uploadBytes(storageRef, selectedFile, metadata);
         fileUrl = await getDownloadURL(storageRef);
       }
 
-      // Get form data
       const formData = new FormData(formRef.current!);
       const templateParams = {
         name: formData.get('name'),
@@ -92,7 +94,6 @@ const Contact = () => {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setUploadProgress(0);
     }
   };
 
