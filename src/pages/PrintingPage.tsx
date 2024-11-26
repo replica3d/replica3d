@@ -4,8 +4,9 @@ import SEO from '../components/SEO';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { Clock, DollarSign, Printer } from 'lucide-react';
+import { Clock, DollarSign, Printer, ExternalLink } from 'lucide-react';
 import CitiesList from '../components/city/CitiesList';
+import MaterialsTable from '../components/materials/MaterialsTable';
 import { cities } from '../data/cities';
 
 const PrintingPage = () => {
@@ -100,6 +101,9 @@ const PrintingPage = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Materials Table */}
+          <MaterialsTable />
 
           {/* Pricing Section */}
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
@@ -239,10 +243,11 @@ const PrintingPage = () => {
                   className="block bg-gray-50 p-6 rounded-xl hover:shadow-md transition-shadow"
                   whileHover={{ y: -5 }}
                 >
-                  <h3 className="text-lg font-semibold mb-2">
-                    {resource.name}
-                  </h3>
-                  <p className="text-base">{resource.description}</p>
+                  <div className="flex items-center space-x-2">
+                    <h3 className="text-lg font-semibold">{resource.name}</h3>
+                    <ExternalLink className="w-4 h-4 text-gray-400" />
+                  </div>
+                  <p className="text-base mt-2">{resource.description}</p>
                 </motion.a>
               ))}
             </div>
