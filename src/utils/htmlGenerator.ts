@@ -106,14 +106,19 @@ export const generateStaticHtml = async (template: string): Promise<void> => {
         .append(googleAnalytics)
         .append('<meta charset="UTF-8">')
         .append('<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">')
-        // Favicon configuration
+        
+        // Enhanced favicon configuration
+        .append('<link rel="icon" type="image/x-icon" href="/favicon.ico">')
         .append('<link rel="icon" type="image/svg+xml" href="/favicon.svg">')
-        .append('<link rel="icon" type="image/png" href="/web-app-manifest-512x512.png" sizes="512x512">')
-        .append('<link rel="icon" type="image/png" href="/web-app-manifest-192x192.png" sizes="192x192">')
-        .append('<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">')
-        .append('<link rel="apple-touch-icon" href="/apple-touch-icon.png">')
-        .append('<link rel="shortcut icon" href="/favicon.ico">')
+        .append('<link rel="icon" type="image/png" sizes="512x512" href="/web-app-manifest-512x512.png">')
+        .append('<link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png">')
+        .append('<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">')
+        .append('<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">')
+        .append('<link rel="mask-icon" href="/favicon.svg" color="#000000">')
+        .append('<meta name="msapplication-TileColor" content="#ffffff">')
+        .append('<meta name="theme-color" content="#ffffff">')
         .append('<link rel="manifest" href="/site.webmanifest">')
+        
         .append(`<title>${metaTags.title}</title>`)
         .append(`<meta name="description" content="${metaTags.description}">`)
         .append(`<meta name="robots" content="${metaTags.noindex ? 'noindex, nofollow' : 'index, follow'}">`)
