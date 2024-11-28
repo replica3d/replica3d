@@ -12,7 +12,7 @@ export interface MetaConfig {
 }
 
 export const getBaseMetaConfig = (): MetaConfig => ({
-  title: 'Druk 3D na zamówienie – Wydruki 3D Wrocław - REPLICA3D',
+  title: 'REPLICA3D – Druk 3D na zamówienie – Wydruki 3D Wrocław',
   description: 'Profesjonalna drukarnia 3D we Wrocławiu oferuje wysokiej jakości wydruki 3D na zamówienie. Kompleksowe usługi druku 3D dla firm i klientów indywidualnych.',
   url: BASE_URL,
   imageUrl: DEFAULT_IMAGE,
