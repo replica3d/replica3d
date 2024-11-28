@@ -83,11 +83,11 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#contact"
-                  onClick={(e) => handleLinkClick(e, 'contact')}
+                  href="#wycena"
+                  onClick={(e) => handleLinkClick(e, 'wycena')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Wy
+                  Wycena
                 </a>
               </li>
             </ul>
