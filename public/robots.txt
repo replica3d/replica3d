@@ -7,12 +7,3 @@ Disallow: /?*
 
 # Sitemap
 Sitemap: https://replica3d.pl/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
-
-User-agent: AhrefsBot
-Crawl-Delay: 2
-
-# Host
-Host: https://replica3d.pl
