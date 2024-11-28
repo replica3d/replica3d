@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Allow: /favicon.ico
 Disallow: /api/
 Disallow: /assets/
 Disallow: /?*
