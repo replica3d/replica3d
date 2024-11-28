@@ -1,7 +1,5 @@
 import { cities } from '../data/cities';
-
-const BASE_URL = 'https://replica3d.pl';
-const DEFAULT_IMAGE = `${BASE_URL}/images/hero.webp`;
+import { BASE_URL, DEFAULT_IMAGE } from './constants';
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",

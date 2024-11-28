@@ -11,7 +11,16 @@ export default defineConfig({
     {
       name: 'generate-html-files',
       async writeBundle() {
-        const template = fs.readFileSync(path.resolve('dist/index.html'), 'utf-8');
+        // Create a minimal template for the initial build
+        const template = `<!DOCTYPE html>
+<html lang="pl">
+  <head></head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>`;
+        
+        // Generate all HTML files using our template
         await generateStaticHtml(template);
       }
     }

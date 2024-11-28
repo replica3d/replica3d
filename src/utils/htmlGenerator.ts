@@ -2,89 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import cheerio from 'cheerio';
 import { VALID_ROUTES, isValidRoute } from '../config/routes';
-import { cities } from '../data/cities';
-import { localBusinessSchema, getServiceSchema, getCityFAQSchema } from './schema';
-
-interface MetaConfig {
-  title: string;
-  description: string;
-  url: string;
-  imageUrl: string;
-  noindex?: boolean;
-  schema?: object;
-}
-
-const BASE_URL = 'https://replica3d.pl';
-const DEFAULT_IMAGE = `${BASE_URL}/images/hero.webp`;
-
-const PRELOAD_IMAGES = [
-  '/images/hero.webp',
-  '/images/druk-3d.webp',
-  '/images/footer.webp',
-  '/images/bg.webp'
-];
-
-const GOOGLE_ANALYTICS = `
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ELPH6H9K2Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ELPH6H9K2Z');
-</script>
-`;
-
-const getBaseMetaConfig = (): MetaConfig => ({
-  title: 'REPLICA3D - Druk 3D na zamówienie - Wydruki 3D Wrocław',
-  description: 'Profesjonalna drukarnia 3D we Wrocławiu oferuje wysokiej jakości wydruki 3D na zamówienie. Kompleksowe usługi druku 3D dla firm i klientów indywidualnych.',
-  url: BASE_URL,
-  imageUrl: DEFAULT_IMAGE,
-  schema: localBusinessSchema
-});
-
-const getPrintingMetaConfig = (): MetaConfig => ({
-  title: 'Usługi druku 3D | Druk 3D na zamówienie Wrocław - REPLICA3D',
-  description: 'Profesjonalne usługi druku 3D we Wrocławiu. Oferujemy druk 3D na zamówienie, wydruki 3D FDM i SLA, szybka realizacja i konkurencyjne ceny.',
-  url: `${BASE_URL}/druk-3d`,
-  imageUrl: DEFAULT_IMAGE,
-  schema: getServiceSchema()
-});
-
-const getCityMetaConfig = (cityUrl: string): MetaConfig => {
-  const city = Object.values(cities).find(c => c.url === cityUrl);
-  if (!city) throw new Error(`City not found: ${cityUrl}`);
-
-  return {
-    title: `Drukowanie 3D ${city.name} | Usługi druku 3D - REPLICA3D`,
-    description: `Profesjonalne usługi druku 3D w ${city.name}. Oferujemy druk 3D na zamówienie, wydruki 3D FDM i SLA, szybka realizacja i konkurencyjne ceny.`,
-    url: `${BASE_URL}/druk-3d-${city.url}`,
-    imageUrl: DEFAULT_IMAGE,
-    schema: getCityFAQSchema(cityUrl)
-  };
-};
-
-const get404MetaConfig = (): MetaConfig => ({
-  title: '404 - Strona nie została znaleziona | REPLICA3D',
-  description: 'Przepraszamy, ale strona, której szukasz, nie istnieje lub została przeniesiona.',
-  url: `${BASE_URL}/404`,
-  imageUrl: DEFAULT_IMAGE,
-  noindex: true
-});
-
-const getMetaConfig = (route: string): MetaConfig => {
-  if (route === '/') return getBaseMetaConfig();
-  if (route === '/druk-3d') return getPrintingMetaConfig();
-  if (route === '/404') return get404MetaConfig();
-  
-  if (route.startsWith('/druk-3d-')) {
-    const cityUrl = route.replace('/druk-3d-', '');
-    return getCityMetaConfig(cityUrl);
-  }
-  
-  return get404MetaConfig();
-};
+import { getMetaConfig } from './metaConfig';
+import { GOOGLE_ANALYTICS, PRELOAD_IMAGES } from './constants';
 
 const getOutputPath = (route: string): string => {
   if (route === '/') return 'index';
@@ -92,7 +11,7 @@ const getOutputPath = (route: string): string => {
   return route.slice(1);
 };
 
-const generateHtml = ($: cheerio.CheerioAPI, config: MetaConfig): void => {
+const generateHtml = ($: cheerio.CheerioAPI, config: ReturnType<typeof getMetaConfig>): void => {
   $('head').empty()
     .append(GOOGLE_ANALYTICS)
     .append('<meta charset="UTF-8">')
