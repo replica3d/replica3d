@@ -6,18 +6,28 @@ import CityPrintingPage from './pages/CityPrintingPage';
 import NotFoundPage from './pages/NotFoundPage';
 import MouseTrail from './components/MouseTrail';
 import { cities } from './data/cities';
-import { VALID_ROUTES, isValidRoute } from './config/routes';
 
-// Scroll to top component
-function ScrollToTop() {
-  const { pathname } = useLocation();
+// Scroll handler component
+function ScrollHandler() {
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Handle normal scrolling to top
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-  }, [pathname]);
+
+    // Handle #wycena hash
+    if (hash === '#wycena') {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        setTimeout(() => {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [pathname, hash]);
 
   return null;
 }
@@ -27,7 +37,7 @@ function App() {
     <BrowserRouter>
       <div className="min-h-screen relative">
         <MouseTrail />
-        <ScrollToTop />
+        <ScrollHandler />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/druk-3d" element={<PrintingPage />} />
