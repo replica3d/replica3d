@@ -2,15 +2,27 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <!-- Favicon -->
+    <!-- Basic Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" href="/web-app-manifest-512x512.png" sizes="512x512">
-    <link rel="icon" type="image/png" href="/web-app-manifest-192x192.png" sizes="192x192">
+
+    <!-- PNG Icons for Various Sizes -->
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/android-chrome-512x512.png" sizes="512x512">
+
+    <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Web Manifest -->
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+    <!-- Mobile-Friendly Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Base URL -->
     <base href="/" />
     
     <!-- Primary Meta Tags -->
@@ -52,7 +64,9 @@
         "telephone": "+48786886676",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Drohobycka 16D",
           "addressLocality": "Wrocław",
+          "postalCode": "54-620",
           "addressRegion": "Dolnośląskie",
           "addressCountry": "PL"
         },
@@ -69,10 +83,12 @@
             "Tuesday",
             "Wednesday",
             "Thursday",
-            "Friday"
+            "Friday",
+            "Saturday",
+            "Sunday"
           ],
-          "opens": "09:00",
-          "closes": "17:00"
+          "opens": "00:00",
+          "closes": "23:59"
         },
         "sameAs": [
           "https://www.facebook.com/replica3dpl",

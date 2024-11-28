@@ -24,7 +24,9 @@ export const getBaseMetaTags = (): MetaTagsConfig => ({
     "telephone": "+48786886676",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Drohobycka 16D",
       "addressLocality": "Wrocław",
+      "postalCode": "54-620",
       "addressRegion": "Dolnośląskie",
       "addressCountry": "PL"
     },
@@ -41,10 +43,12 @@ export const getBaseMetaTags = (): MetaTagsConfig => ({
         "Tuesday",
         "Wednesday",
         "Thursday",
-        "Friday"
+        "Friday",
+        "Saturday",
+        "Sunday"
       ],
-      "opens": "09:00",
-      "closes": "17:00"
+      "opens": "00:00",
+      "closes": "23:59"
     },
     "sameAs": [
       "https://www.facebook.com/replica3dpl",
