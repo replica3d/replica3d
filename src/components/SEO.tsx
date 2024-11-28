@@ -26,12 +26,6 @@ const SEO: React.FC = () => {
       
       <meta name="robots" content={config.noindex ? 'noindex, nofollow' : 'index, follow'} />
       <link rel="canonical" href={config.url} />
-      
-      {config.schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(config.schema)}
-        </script>
-      )}
     </Helmet>
   );
 };
