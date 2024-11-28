@@ -8,7 +8,7 @@ export const localBusinessSchema = {
   "image": DEFAULT_IMAGE,
   "@id": BASE_URL,
   "url": BASE_URL,
-  "telephone": "+48786886676",
+  "telephone": "+48690399633",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Drohobycka 16D",
