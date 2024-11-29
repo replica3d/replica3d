@@ -20,11 +20,10 @@ const generateHtml = ($: cheerio.CheerioAPI, config: ReturnType<typeof getMetaCo
     // Favicon configuration
     .append('<link rel="shortcut icon" href="/fav.ico?v=2" />')
     .append('<link rel="icon" type="image/svg+xml" href="/fav.svg" />')
-    .append('<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />')
-    .append('<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />')
+    .append('<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">')
+    .append('<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">')
+    .append('<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">')
     .append('<link rel="manifest" href="/site.webmanifest" />')
-    .append('<meta name="theme-color" content="#ffffff">')
-    .append('<meta name="msapplication-TileColor" content="#ffffff">')
     
     // Primary Meta Tags
     .append(`<title>${config.title}</title>`)
