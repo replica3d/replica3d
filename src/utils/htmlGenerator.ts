@@ -18,8 +18,8 @@ const generateHtml = ($: cheerio.CheerioAPI, config: ReturnType<typeof getMetaCo
     .append('<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">')
     
     // Favicon configuration
-    .append('<link rel="shortcut icon" href="/favicon.ico" />')
-    .append('<link rel="icon" type="image/svg+xml" href="/favicon.svg" />')
+    .append('<link rel="shortcut icon" href="/fav.ico" />')
+    .append('<link rel="icon" type="image/svg+xml" href="/fav.svg" />')
     .append('<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />')
     .append('<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />')
     .append('<link rel="manifest" href="/site.webmanifest" />')
