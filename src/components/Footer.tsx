@@ -138,6 +138,12 @@ const Footer = () => {
             </ul>
           </div>
           <div>
+          <h3 className="text-2xl font-bold mb-4" aria-label="Adres Firmy">REPLICA3D</h3>
+              <address className="text-gray-300 not-italic mb-6">
+                Drohobycka 16D<br />
+                54-620 Wrocław<br />
+                Poland
+              </address>
             <h3 className="text-2xl font-bold mb-4" aria-label="Media społecznościowe">Śledź Nas</h3>
             <div className="flex space-x-4">
               <a
