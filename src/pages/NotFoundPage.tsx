@@ -4,12 +4,10 @@ import { motion } from 'framer-motion';
 import { Home, ArrowLeft, Link as LinkIcon, XCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import SEO from '../components/SEO';
 
 const NotFoundPage = () => {
   return (
     <>
-      <SEO />
       <Navbar />
       <div className="min-h-[calc(100vh-200px)] flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 px-4">
         <motion.div 

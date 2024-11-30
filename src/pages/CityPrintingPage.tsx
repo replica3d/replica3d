@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar';
 import CityIntro from '../components/city/CityIntro';
 import CityFAQ from '../components/city/CityFAQ';
 import CitiesList from '../components/city/CitiesList';
-import SEO from '../components/SEO';
 
 interface City {
   name: string;
@@ -46,7 +45,6 @@ const CityPrintingPage: React.FC<CityPageProps> = ({ city, allCities }) => {
 
   return (
     <div className="city-page">
-      <SEO />
       <Navbar />
 
       <div className="relative h-[200px] md:h-[300px] overflow-hidden">

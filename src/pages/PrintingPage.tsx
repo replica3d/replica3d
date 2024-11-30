@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SEO from '../components/SEO';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -12,7 +11,6 @@ import { cities } from '../data/cities';
 const PrintingPage = () => {
   return (
     <>
-      <SEO />
       <Navbar />
 
       <div className="relative h-[200px] md:h-[300px] overflow-hidden">

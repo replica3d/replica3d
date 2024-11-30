@@ -6,7 +6,6 @@ import Portfolio from '../components/Portfolio';
 import Technology from '../components/Technology';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import SEO from '../components/SEO';
 
 const Home = () => {
   const location = useLocation();
@@ -23,7 +22,6 @@ const Home = () => {
 
   return (
     <>
-      <SEO />
       <Hero />
       <Services />
       <Portfolio />
