@@ -52,48 +52,52 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4" aria-label="Menu nawigacyjne">Szybkie Linki</h3>
+            <h3 className="text-2xl font-bold mb-4" aria-label="Główne miasta">Druk 3D w Polsce</h3>
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#services"
-                  onClick={(e) => handleLinkClick(e, 'services')}
+                  href="/druk-3d-warszawa/"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Usługi
+                  Druk 3D Warszawa
                 </a>
               </li>
               <li>
                 <a
-                  href="#portfolio"
-                  onClick={(e) => handleLinkClick(e, 'portfolio')}
+                  href="/druk-3d-krakow/"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Portfolio
+                  Druk 3D Kraków
                 </a>
               </li>
               <li>
                 <a
-                  href="#technology"
-                  onClick={(e) => handleLinkClick(e, 'technology')}
+                  href="/druk-3d-lodz/"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Technologia
+                  Druk 3D Łódź
                 </a>
               </li>
               <li>
                 <a
-                  href="#wycena"
-                  onClick={(e) => handleLinkClick(e, 'wycena')}
+                  href="/druk-3d-wroclaw/"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Wycena
+                  Druk 3D Wrocław
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/druk-3d-poznan/"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Druk 3D Poznań
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4" aria-label="Informacje kontaktowe">Wycena Druku 3D</h3>
+            <h3 className="text-2xl font-bold mb-4" aria-label="Wycena Druku 3D">Wycena Druku 3D</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail size={20} className="text-gray-300 flex-shrink-0" />
@@ -144,7 +148,6 @@ const Footer = () => {
                 54-620 Wrocław<br />
                 Poland
               </address>
-            <h3 className="text-2xl font-bold mb-4" aria-label="Media społecznościowe">Śledź Nas</h3>
             <div className="flex space-x-4">
               <a
                 href="mailto:info@replica3d.pl"
@@ -188,10 +191,10 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-300 text-body">
             <div className="text-center md:text-left mb-2 md:mb-0">
-              REPLICA3D © 2024 | RN:387720616 | NIP:8982231371
+              REPLICA3D &copy; 2024 | RN:387720616 | NIP:8982231371
             </div>
             <div className="flex items-center">
-              With <span className="text-red-500 mx-1">❤️</span> from Wrocław
+              With <span className="text-red-500 mx-1">&hearts;</span> from Wrocław
             </div>
           </div>
         </div>
