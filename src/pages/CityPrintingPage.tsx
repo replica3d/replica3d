@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import CityIntro from '../components/city/CityIntro';
 import CityFAQ from '../components/city/CityFAQ';
 import CitiesList from '../components/city/CitiesList';
+import CityMap from '../components/city/CityMap';
 
 interface City {
   name: string;
@@ -91,6 +92,7 @@ const CityPrintingPage: React.FC<CityPageProps> = ({ city, allCities }) => {
       </main>
 
       <Contact />
+      <CityMap cityName={city.name} />
       <Footer />
     </div>
   );
