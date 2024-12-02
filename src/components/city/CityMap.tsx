@@ -7,7 +7,7 @@ interface CityMapProps {
 
 const CityMap: React.FC<CityMapProps> = ({ cityName }) => {
   const encodedAddress = encodeURIComponent(`${cityName}, Poland`);
-  const mapSrc = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodedAddress}&zoom=12`;
+  const mapSrc = `https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&q=${encodedAddress}&zoom=12`;
 
   return (
     <div className="w-full bg-white">
