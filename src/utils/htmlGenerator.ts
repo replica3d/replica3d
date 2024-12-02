@@ -3,7 +3,7 @@ import path from 'path';
 import cheerio from 'cheerio';
 import { VALID_ROUTES, isValidRoute } from '../config/routes';
 import { getMetaConfig } from './metaConfig';
-import { GOOGLE_ANALYTICS, PRELOAD_IMAGES } from './constants';
+import { TRACKING_SCRIPTS, PRELOAD_IMAGES } from './constants';
 
 const getOutputPath = (route: string): string => {
   if (route === '/') return 'index';
@@ -13,7 +13,7 @@ const getOutputPath = (route: string): string => {
 
 const generateHtml = ($: cheerio.CheerioAPI, config: ReturnType<typeof getMetaConfig>): void => {
   $('head').empty()
-    .append(GOOGLE_ANALYTICS)
+    .append(TRACKING_SCRIPTS)
     .append('<meta charset="UTF-8">')
     .append('<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">')
     

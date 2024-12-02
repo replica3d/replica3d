@@ -19,3 +19,24 @@ export const GOOGLE_ANALYTICS = `
   gtag('config', 'G-ELPH6H9K2Z');
 </script>
 `;
+
+export const SITE_BEHAVIOUR = `
+<script type="text/javascript">
+      (
+        function() {
+          var sbSiteSecret = "f6cfde94-8751-412a-bab4-ff24fbf0e6ea";
+          window.sitebehaviourTrackingSecret = sbSiteSecret;
+          var scriptElement = document.createElement('script');
+          scriptElement.async = true;
+          scriptElement.id = "site-behaviour-script-v2";
+          scriptElement.src = "https://sitebehaviour-cdn.fra1.cdn.digitaloceanspaces.com/index.min.js?sitebehaviour-secret=" + sbSiteSecret;
+          document.head.appendChild(scriptElement); 
+        }
+      )()
+</script>
+`;
+
+export const TRACKING_SCRIPTS = `
+${GOOGLE_ANALYTICS}
+${SITE_BEHAVIOUR}
+`;
